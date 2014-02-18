@@ -1,0 +1,12 @@
+Todo:
+
+When adding an exercise
+if you have a goal for that et
+  if you go over your goal
+    put today as the completed date
+  end
+end
+
+Add completed  Goals to user page (tab)
+
+end

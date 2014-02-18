@@ -1,5 +1,5 @@
 == To do
 * Tests!
-* Validate new game creation
+* Validate new exercise creation
 * Must include 2 different people
-* Fiter games by date - (last week, last month)
+* Fiter exercises by date - (last week, last month)

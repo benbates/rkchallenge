@@ -1,0 +1,7 @@
+<ul class="nav nav-tabs" id="myTab">
+  <% all_exercise_types %>
+  <li class="active"><a href="#tab" data-toggle="tab"><%= "All" %></a></li>
+  <% ExerciseType.all.each do | exercise_type | %>
+    <li><a href="#tab<%= exercise_type.id %>" data-toggle="tab"><%= exercise_type.name %></a></li>
+  <% end %>
+</ul>

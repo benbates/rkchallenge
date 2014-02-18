@@ -1,0 +1,23 @@
+
+<table class="table table-striped table-bordered">
+  <thead>
+    <tr>
+      <th class="span2">Execerise</th>
+      <th class="span2">Goal</th>
+      <th class="span2">Remaining</th>      
+      <th class="span2">Progress</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @exercise_types.each do |exercise_type| %>
+    <% if @user.goals.exists?( exercise_type_id: exercise_type, completed_date: nil) %>
+      <tr>
+        <td><%= exercise_type.name %></th>
+        <td><%= goal_total(@user, exercise_type) %></th>
+        <td><%= goal_remaining(@user, exercise_type) %></td>
+        <td><%= goal_progress(@user, exercise_type) %></td>
+      </tr>
+    <% end %>
+  <% end %>
+  </tbody>
+</table>

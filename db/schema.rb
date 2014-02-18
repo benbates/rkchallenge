@@ -11,48 +11,37 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131110030620) do
+ActiveRecord::Schema.define(:version => 20140214172152) do
 
-  create_table "game_types", :force => true do |t|
+  create_table "exercise_types", :force => true do |t|
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
-  create_table "games", :force => true do |t|
-    t.integer  "game_type_id"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
-    t.string   "comment"
+  create_table "exercises", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "exercise_type_id"
+    t.date     "exercise_date"
+    t.integer  "reps"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
   end
 
-  create_table "players", :force => true do |t|
+  create_table "goals", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "exercise_type_id"
+    t.date     "completed_date"
+    t.integer  "total"
+    t.integer  "progress"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+  end
+
+  create_table "users", :force => true do |t|
     t.string   "name"
-    t.datetime "created_at",                     :null => false
-    t.datetime "updated_at",                     :null => false
-    t.integer  "win_count",      :default => 0
-    t.float    "win_percent"
-    t.integer  "points_for"
-    t.integer  "ladder_pos"
-    t.string   "ladder_stat",    :default => ""
-    t.boolean  "retired"
-    t.integer  "loss_count"
-    t.integer  "points_against"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
-
-  create_table "relationships", :force => true do |t|
-    t.integer  "player_id"
-    t.integer  "opponent_id"
-    t.integer  "win_count"
-    t.integer  "loss_count"
-    t.integer  "points_for"
-    t.integer  "points_against"
-    t.float    "win_percent"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
-  end
-
-# Could not dump table "results" because of following StandardError
-#   Unknown type 'id' for column 'opponent_id'
 
 end

@@ -1,15 +1,15 @@
 FactoryGirl.define do
-  factory :player do
+  factory :user do
     name     "Ben Bates"
   end
   
-  factory :game do
-    game_type_id "1"
+  factory :exercise do
+    exercise_type_id "1"
   end
   
   factory :result do
     content "Lorem ipsum"
-    player
+    user
     
   end
 end

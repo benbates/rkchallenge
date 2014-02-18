@@ -1,0 +1,35 @@
+<%= form_for(@goal) do |f| %>
+  <% if @goal.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@goal.errors.count, "error") %> prohibited this goal from being saved:</h2>
+
+      <ul>
+      <% @goal.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+          <div class="span3">
+            User
+            <div class="row-fluid">
+              <%= select_tag :user, options_from_collection_for_select(User.all, :id, :name) %>
+            </div>
+          </div>
+          <div class="span3">
+            Exercise Type
+            <div class="row-fluid">
+              <%= select_tag :exercise_type, options_from_collection_for_select(ExerciseType.all, :id, :name) %>
+            </div>
+          </div>           
+          <div class="span3">
+            Number
+            <div class="row-fluid">
+              <%= f.number_field :total %>
+            </div>
+          </div> 
+
+  <div class="actions row-fluid">
+    <%= f.submit %>
+  </div>
+<% end %>

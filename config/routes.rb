@@ -1,18 +1,16 @@
 Leaderboard::Application.routes.draw do
   
-  match "ladder", to: "static_pages#ladder"
-
-  root to: 'players#index'
+  root to: 'users#index'
   
-  resources :game_types
+  resources :exercise_types
 
-  resources :results
+  resources :goals
 
-  resources :games do
+  resources :exercises do
       get 'admin', :on => :collection
   end
 
-  resources :players do
+  resources :users do
     get 'list', :on => :collection
     post 'update_multiple', :on => :collection
   end

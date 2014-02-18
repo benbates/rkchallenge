@@ -1,14 +1,14 @@
 require 'test_helper'
 
-class GameTypesControllerTest < ActionController::TestCase
+class ExerciseTypesControllerTest < ActionController::TestCase
   setup do
-    @game_type = game_types(:one)
+    @exercise_type = exercise_types(:one)
   end
 
   test "should get index" do
     get :index
     assert_response :success
-    assert_not_nil assigns(:game_types)
+    assert_not_nil assigns(:exercise_types)
   end
 
   test "should get new" do
@@ -16,34 +16,34 @@ class GameTypesControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should create game_type" do
-    assert_difference('GameType.count') do
-      post :create, game_type: { name: @game_type.name }
+  test "should create exercise_type" do
+    assert_difference('ExerciseType.count') do
+      post :create, exercise_type: { name: @exercise_type.name }
     end
 
-    assert_redirected_to game_type_path(assigns(:game_type))
+    assert_redirected_to exercise_type_path(assigns(:exercise_type))
   end
 
-  test "should show game_type" do
-    get :show, id: @game_type
+  test "should show exercise_type" do
+    get :show, id: @exercise_type
     assert_response :success
   end
 
   test "should get edit" do
-    get :edit, id: @game_type
+    get :edit, id: @exercise_type
     assert_response :success
   end
 
-  test "should update game_type" do
-    put :update, id: @game_type, game_type: { name: @game_type.name }
-    assert_redirected_to game_type_path(assigns(:game_type))
+  test "should update exercise_type" do
+    put :update, id: @exercise_type, exercise_type: { name: @exercise_type.name }
+    assert_redirected_to exercise_type_path(assigns(:exercise_type))
   end
 
-  test "should destroy game_type" do
-    assert_difference('GameType.count', -1) do
-      delete :destroy, id: @game_type
+  test "should destroy exercise_type" do
+    assert_difference('ExerciseType.count', -1) do
+      delete :destroy, id: @exercise_type
     end
 
-    assert_redirected_to game_types_path
+    assert_redirected_to exercise_types_path
   end
 end

@@ -1,0 +1,19 @@
+<h1>Leaderboard</h1>
+
+    <ul class="nav nav-tabs">
+      <li class="active"><a href="#<%= @exercise_types.first.id %>" data-toggle="tab"><%= @exercise_types.first.name %></a></li>     
+      <% @exercise_types.drop(1).each do |exercise_type| %>
+        <li><a href="#<%= exercise_type.id %>" data-toggle="tab"><%= exercise_type.name %></a></li>
+      <% end %>
+    </ul>
+    <div class="tab-content">
+      <div class="tab-pane active" id="<%= @exercise_types.first.id %>">
+      <%= render 'layouts/user_goals', exercise_type: @exercise_types.first.id %></div>
+      <% @exercise_types.drop(1).each do |exercise_type| %>
+        <div class="tab-pane" id="<%= exercise_type.id %>">
+        <%= render 'layouts/user_goals', exercise_type: exercise_type.id %></div>
+      <% end %>
+    <div>
+    
+
+

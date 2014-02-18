@@ -1,23 +1,23 @@
 require 'spec_helper'
 
-describe Game do
+describe Exercise do
 
-  let(:game) { FactoryGirl.create(:game) }
-  subject { game }
+  let(:exercise) { FactoryGirl.create(:exercise) }
+  subject { exercise }
 
-  it { should respond_to(:game_type_id) }
-  it { should respond_to(:player) }
+  it { should respond_to(:exercise_type_id) }
+  it { should respond_to(:user) }
   it { should respond_to(:result) }
   it { should be_valid }
 
-  describe "when game_type_id is not present" do
-    before { game.game_type_id = " " }
+  describe "when exercise_type_id is not present" do
+    before { exercise.exercise_type_id = " " }
     it { should_not be_valid }
   end
   
-  describe "when a game is deleted" do
+  describe "when a exercise is deleted" do
     # results are deleted
-    # player win_counts are adjusted
+    # user win_counts are adjusted
     
   end
   

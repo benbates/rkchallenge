@@ -18,7 +18,7 @@ class ResultsControllerTest < ActionController::TestCase
 
   test "should create result" do
     assert_difference('Result.count') do
-      post :create, result: { game_id: @result.game_id, player_id: @result.player_id }
+      post :create, result: { exercise_id: @result.exercise_id, user_id: @result.user_id }
     end
 
     assert_redirected_to result_path(assigns(:result))
@@ -35,7 +35,7 @@ class ResultsControllerTest < ActionController::TestCase
   end
 
   test "should update result" do
-    put :update, id: @result, result: { game_id: @result.game_id, player_id: @result.player_id }
+    put :update, id: @result, result: { exercise_id: @result.exercise_id, user_id: @result.user_id }
     assert_redirected_to result_path(assigns(:result))
   end
 

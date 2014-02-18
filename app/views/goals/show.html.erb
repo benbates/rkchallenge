@@ -1,0 +1,20 @@
+<% provide(:title, @goal.name) %>
+<p id="notice"><%= notice %></p>
+<h1><%= @goal.name %></h1>
+
+<%= render 'layouts/current_goals' %>
+
+  <div id="goals">
+    <%= will_paginate @goals, :params => {:anchor => "goals"} %>
+
+    <%= render 'layouts/goal' %>
+
+    <%= will_paginate @goals%>
+  </div>
+</div>
+<%= link_to 'Back', goals_path %>
+
+<script type="text/javascript">
+  $(function () { var a = $('[href=' + location.hash + ']'); a && a.tab('show'); });
+  $('.nav a').on('shown', function (e) { window.location = "#top"; })
+</script>
