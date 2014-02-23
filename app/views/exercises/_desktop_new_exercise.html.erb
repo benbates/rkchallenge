@@ -3,12 +3,7 @@
     <%= fields_for :results do |d| %>
       <div class="hidden-phone span12">
         <div class="row-fluid">
-          <div class="span3">
-            User
-            <div class="row-fluid">
-              <%= select_tag :user, options_from_collection_for_select(User.all, :id, :name) %>
-            </div>
-          </div>
+
           <div class="span3">
             Exercise Type
             <div class="row-fluid">

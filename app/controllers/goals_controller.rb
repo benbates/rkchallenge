@@ -1,4 +1,5 @@
 class GoalsController < ApplicationController
+  before_filter :signed_in_user
   # GET /goals
   # GET /goals.json
   def index
@@ -54,10 +55,9 @@ class GoalsController < ApplicationController
   # POST /goals
   # POST /goals.json
   def create
-    @user = User.find(params[:user])
     @et = params[:exercise_type]
 
-    @goal = @user.goals.create( :exercise_type_id => @et, :total => params[:goal][:total], :progress => 0 ) 
+    @goal = current_user.goals.create( :exercise_type_id => @et, :total => params[:goal][:total], :progress => 0 ) 
 
       respond_to do |format|
         if @goal.save 
@@ -94,7 +94,7 @@ class GoalsController < ApplicationController
     @goal.destroy
 
     respond_to do |format|
-      format.html { redirect_to :action => "admin" }
+      format.html { redirect_to "/users", notice: 'Goal successfully deleted.' }
       format.json { head :no_content }
     end
   end

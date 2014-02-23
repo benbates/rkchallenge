@@ -1,4 +1,6 @@
 class ExerciseTypesController < ApplicationController
+  before_filter :signed_in_user
+
   # GET /exercise_types
   # GET /exercise_types.json
   def index

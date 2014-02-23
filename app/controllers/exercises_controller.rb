@@ -1,4 +1,6 @@
 class ExercisesController < ApplicationController
+  before_filter :signed_in_user
+
   # GET /exercises
   # GET /exercises.json
   def index
@@ -55,13 +57,12 @@ class ExercisesController < ApplicationController
   # POST /exercises.json
   def create
 
-    @user = User.find(params[:user])
     @et = params[:exercise_type]
 
     @date = Date.strptime(params[:results][:exercise_date], "%m/%d/%Y")
-    @exercise = @user.exercises.create( :exercise_type_id => @et, :reps => params[:results][:reps], :exercise_date => @date ) 
+    @exercise = current_user.exercises.create( :exercise_type_id => @et, :reps => params[:results][:reps], :exercise_date => @date ) 
     if @user.goals.exists?(:exercise_type_id => @et, :completed_date => nil)
-      @goal = @user.goals.where(:exercise_type_id => @et, :completed_date => nil).first
+      @goal = current_user.goals.where(:exercise_type_id => @et, :completed_date => nil).first
       @goal.progress += params[:results][:reps].to_i
       if @goal.progress >= @goal.total
         @goal.completed_date = Date.today
@@ -105,7 +106,7 @@ class ExercisesController < ApplicationController
     @exercise.destroy
 
     respond_to do |format|
-      format.html { redirect_to :action => "admin" }
+      format.html { redirect_to "/users", notice: 'Exercise successfully deleted.' }
       format.json { head :no_content }
     end
   end
