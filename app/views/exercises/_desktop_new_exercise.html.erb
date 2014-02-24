@@ -1,40 +1,21 @@
-<div class="row-fluid hidden-phone">
   <%= form_for(@exercise) do |f| %>
     <%= fields_for :results do |d| %>
-      <div class="hidden-phone span12">
-        <div class="row-fluid">
 
-          <div class="span3">
-            Exercise Type
-            <div class="row-fluid">
-              <%= select_tag :exercise_type, options_from_collection_for_select(ExerciseType.all, :id, :name) %>
-            </div>
-          </div>           
-          <div class="span3">
-            Reps
-            <div class="row-fluid">
-              <%= d.number_field :reps %>
-            </div>
-          </div>  
-          <div class="span3">
-            Date
-            <div class="row-fluid">
-              <%= d.text_field :exercise_date, 'data-behaviour' => 'datepicker' %>
+      <%= d.label :exercise_type %>
+      <%= select_tag :exercise_type, options_from_collection_for_select(ExerciseType.all, :id, :name) %>
+
+      <%= d.label :reps %>
+      <%= d.number_field :reps %>
+
+      <%= d.label :date %>
+      <%= d.text_field :exercise_date, 'data-behaviour' => 'datepicker' %>
+
+    <% end %>
+    <div><%= f.submit "Create Exercise", class: "btn btn-large btn-primary" %></div>
+  <% end %>
 
 <script type="text/javascript">
   $(document).ready(function(){
     $('[data-behaviour~=datepicker]').datepicker();
   })
 </script>
-            </div>
-        </div>
-      </div>
-    <% end %>
-    <div class="actions span2">
-      <%= f.submit %>  
-    </div> 
-    <div class="span2">
-      <%= link_to 'New User', new_user_path %>
-    </div>
-  <% end %>
-</div>

@@ -9,4 +9,8 @@ end
 
 Add completed  Goals to user page (tab)
 
+Check if an exercise falls between the last completed goal and today (add/remove from goal)
+
+
+
 end

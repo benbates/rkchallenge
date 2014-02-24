@@ -12,20 +12,11 @@
     </div>
   <% end %>
 
-          <div class="span3">
-            Exercise Type
-            <div class="row-fluid">
-              <%= select_tag :exercise_type, options_from_collection_for_select(ExerciseType.all, :id, :name) %>
-            </div>
-          </div>           
-          <div class="span3">
-            Number
-            <div class="row-fluid">
-              <%= f.number_field :total %>
-            </div>
-          </div> 
+  <%= f.label :exercise_type %>
+  <%= select_tag :exercise_type, options_from_collection_for_select(ExerciseType.all, :id, :name) %>       
+  <%= f.label :number %>
+  <%= f.number_field :total %>
 
-  <div class="actions row-fluid">
-    <div><%= f.submit "Create Goal", class: "btn btn-large btn-primary" %></div>
-  </div>
+  <div><%= f.submit "Create Goal", class: "btn btn-large btn-primary" %></div>
+  
 <% end %>
