@@ -1,7 +1,0 @@
-<ul class="nav nav-tabs" id="myTab">
-  <% all_game_types %>
-  <li class="active"><a href="#tab" data-toggle="tab"><%= "All" %></a></li>
-  <% GameType.all.each do | game_type | %>
-    <li><a href="#tab<%= game_type.id %>" data-toggle="tab"><%= game_type.name %></a></li>
-  <% end %>
-</ul>
