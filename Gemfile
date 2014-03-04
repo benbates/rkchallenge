@@ -8,6 +8,8 @@ gem 'will_paginate', '3.0.3'
 gem 'bootstrap-will_paginate', '0.0.6'
 gem 'thin'
 gem 'bootstrap-datepicker-rails'
+gem "paperclip", "~> 4.1"
+gem "cocaine", "~> 0.5.3"
 
 group :development, :test do
   gem 'sqlite3', '1.3.5'
