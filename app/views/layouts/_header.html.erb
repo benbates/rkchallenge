@@ -19,9 +19,9 @@
                 <li><%= link_to "Profile", current_user %></li>
                 <li><%= link_to "Settings", edit_user_path(current_user) %></li>
                 <li class="divider"></li>
-                <li><%= link_to "New Goal", new_goal_path %></li>
-                <li><%= link_to "New Exercise", new_exercise_path %></li>
-                <li><%= link_to "New Exercise Type", new_exercise_type_path %></li>
+                <li><%= link_to "Log Exercise", new_exercise_path %></li>
+                <li><%= link_to "Enter New Goal", new_goal_path %></li>
+                <li><%= link_to "Create New Exercise Type", new_exercise_type_path %></li>
                 <li class="divider"></li>
                 <li>
                   <%= link_to "Sign out", signout_path, method: "delete" %>
