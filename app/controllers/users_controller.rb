@@ -8,6 +8,7 @@ class UsersController < ApplicationController
   def index
     @exercise_types = ExerciseType.all
     @users = User.all
+    @goals = Goal.order("total DESC").where(completed_date: nil)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -57,7 +58,6 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
-
     @user = User.new(params[:user])
 
     respond_to do |format|
@@ -76,6 +76,8 @@ class UsersController < ApplicationController
   # PUT /users/1.json
   def update
     @user = User.find(params[:id])
+    params[:user].delete(:password) if params[:user][:password].blank?
+    params[:user].delete(:avatar) if params[:user][:avatar].blank?
 
     respond_to do |format|
       if @user.update_attributes(params[:user])

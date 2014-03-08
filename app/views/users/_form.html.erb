@@ -12,10 +12,10 @@
   <% end %>
 
     <%= f.label :name %>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, :required => true %>
 
     <%= f.label :email %>
-    <%= f.text_field :email %>
+    <%= f.text_field :email, :required => true %>
 
     <%= f.label :profile_picture %>
     <%= f.file_field :avatar %>
