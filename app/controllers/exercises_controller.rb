@@ -61,7 +61,7 @@ class ExercisesController < ApplicationController
 
     @date = Date.strptime(params[:results][:exercise_date], "%m/%d/%Y")
     @exercise = current_user.exercises.create( :exercise_type_id => @et, :reps => params[:results][:reps], :exercise_date => @date ) 
-    if @user.goals.exists?(:exercise_type_id => @et, :completed_date => nil)
+    if current_user.goals.exists?(:exercise_type_id => @et, :completed_date => nil)
       @goal = current_user.goals.where(:exercise_type_id => @et, :completed_date => nil).first
       @goal.progress += params[:results][:reps].to_i
       if @goal.progress >= @goal.total
