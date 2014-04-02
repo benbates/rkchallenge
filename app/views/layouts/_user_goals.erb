@@ -3,20 +3,19 @@
         <tr>
           <th>Name</th>
           <th>Current Goal</th>
-          <th>Remaining</th>
           <th>Total Reps</th>
+          <th>Remaining</th>
         </tr>
       </thead>
       <tbody>   
-        <% @users.each do | user | %>
-          <% if user.goals.exists?( exercise_type_id: exercise_type, completed_date: nil) %>
+        <% @et_goals = Goal.order("progress DESC").where(exercise_type_id: exercise_type, completed_date: nil) %>
+        <% @et_goals.each do | goal | %>
             <tr>
-              <td><%= link_to user.name, user %></td> 
-              <td><%= goal_total(user, exercise_type) %></td>
-              <td><%= goal_remaining(user, exercise_type) %></td>
-              <td><%= goal_progress(user, exercise_type) %></td>
+              <td><%= link_to goal.user.name, goal.user %></td> 
+              <td><%= goal.total %></td>
+              <td><%= goal.progress %></td>
+              <td><%= goal.total - goal.progress %></td>
             </tr>
-          <% end %>
         <% end %>
       </tbody>
     </table>

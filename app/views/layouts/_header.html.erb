@@ -9,6 +9,7 @@
       <a class="brand" href="/">RunKeeper Challenge</a>
       <nav class="nav-collapse collapse">
         <ul class="nav pull-right">
+          <li><%= link_to "Log Exercise", new_exercise_path %></li>
           <li><%= link_to "Leaderboard", users_path %></li>
           <% if signed_in? %>
             <li id="fat-menu" class="dropdown">

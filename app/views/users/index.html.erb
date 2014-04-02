@@ -15,8 +15,8 @@
               <th>Name</th>
               <th>Exercise Type</th>
               <th>Current Goal</th>
-              <th>Remaining</th>
               <th>Total Reps</th>
+              <th>Remaining</th>
             </tr>
           </thead>
           <tbody>   
@@ -25,8 +25,8 @@
                   <td><%= link_to goal.user.name, goal.user %></td> 
                   <td><%= goal.exercise_type.name %></td>
                   <td><%= goal.total %></td>
+                  <td><%= goal.progress %></td>
                   <td><%= goal_remaining(goal.user, goal.exercise_type) %></td>
-                  <td><%= goal_progress(goal.user, goal.exercise_type) %></td>
                 </tr>
               <% end %>
           </tbody>

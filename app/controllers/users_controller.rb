@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   def index
     @exercise_types = ExerciseType.all
     @users = User.all
-    @goals = Goal.order("total DESC").where(completed_date: nil)
+    @goals = Goal.order("progress DESC").where(completed_date: nil)
 
     respond_to do |format|
       format.html # index.html.erb
