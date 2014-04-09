@@ -4,7 +4,9 @@ Leaderboard::Application.routes.draw do
   
   resources :exercise_types
 
-  resources :goals
+  resources :goals do
+      get 'edit', :on => :collection
+  end
 
   resources :exercises do
       get 'admin', :on => :collection
