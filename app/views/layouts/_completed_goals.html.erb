@@ -1,0 +1,19 @@
+
+<table class="table table-striped table-bordered">
+  <thead>
+    <tr>
+      <th>Execerise</th>
+      <th>Goal</th>
+      <th>Completed Date</th>      
+    </tr>
+  </thead>
+  <tbody>
+  <% completed_goals(@user).each do |goal| %>
+      <tr>
+        <td><%= goal.exercise_type.name %></th>
+        <td><%= goal.total %></th>
+        <td><%= goal.completed_date %></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
